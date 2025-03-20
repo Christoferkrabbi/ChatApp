@@ -1,0 +1,24 @@
+﻿using System;
+using System.Net;
+using System.Net.Sockets;
+using ChatServer;
+
+namespace CahtServer
+{
+    class Program
+    {
+        static List<Client> _users;
+        static TcpListener _listener;
+        static void Main(string[] args)
+        {
+            _users = new List<Client>();
+            _listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 7891);
+            _listener.Start();
+
+            var client = new Client(_listener.AcceptTcpClient());
+            //yt: 14.00 MIN
+            
+
+        }
+    }
+}
